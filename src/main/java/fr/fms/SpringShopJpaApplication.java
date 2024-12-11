@@ -1,5 +1,7 @@
 package fr.fms;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -57,6 +59,12 @@ public class SpringShopJpaApplication implements CommandLineRunner{
 		for(Articles articles : articleRepository.findByBrandContainsAndPriceGreaterThan("sung",200)) {
 			System.out.println(articles);
 		}
+		
+		Long categoryId = smartphone.getId();
+        List<Articles> articlesByCategory = articleRepository.findByCategoryId(categoryId);
+       for (Articles articleByCategory : articlesByCategory) {
+            System.out.println(articleByCategory);
+        }
 		
 		
 		//1.2 afficher 1 article et tous les articles

@@ -35,6 +35,7 @@ public interface ArticleRepository extends JpaRepository<Articles,Long> {
 	 @Query("update Articles a SET a.description = :description, a.price = :price where a.id = :id ")
 	 void updateArticleById(@Param("id") Long id, @Param("description") String description, @Param("price") double price);
 	 
+	 
 	 // 1.7 choix de la méthode : afficher les articles suivant une plage de prix
 	 @Query("SELECT a FROM Articles a WHERE a.price BETWEEN :minPrice AND :maxPrice")
 	 List<Articles> findByPriceRange(@Param("minPrice") double minPrice, @Param("maxPrice") double maxPrice);
